@@ -14,3 +14,7 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
+
+    def snippet(self):
+        # take the first 50 characters of the body
+        return self.body[:50] + '...'
