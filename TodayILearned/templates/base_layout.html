@@ -12,6 +12,9 @@
 
 <body>
     <div class="wrapper">
+        <div class='logo'>
+            <h1><a href="{% url 'articles:listView' %}"><img src="{% static 'TodayILearned_logo.png' %}"></a></h1>
+        </div>
         {% block content %}
         {% endblock %}
     </div>
