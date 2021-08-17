@@ -10,6 +10,7 @@ class Article(models.Model):
     date = DateTimeField(auto_now_add=True)
     thumbnail = models.ImageField(default='default.png', blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
+    # tag = models.TextField
 
     def __str__(self):
         return self.title

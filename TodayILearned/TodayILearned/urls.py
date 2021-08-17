@@ -5,6 +5,7 @@ from . import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls.static import static
 from django.conf import settings
+from articles import views as article_views
 
 
 urlpatterns = [
@@ -12,7 +13,7 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('articles/', include('articles.urls')),
     path('about/', views.aboutPage),
-    path('', views.homePage),
+    path('', article_views.article_list, name='home'),
 ]
 
 # add the staticfiles to the url paths
