@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models.fields import CharField, DateTimeField, SlugField, TextField
 from django.contrib.auth.models import User
+import datetime
 
 
 class Article(models.Model):
@@ -18,3 +19,19 @@ class Article(models.Model):
     def snippet(self):
         # take the first 50 characters of the body
         return self.body[:50] + '...'
+
+    def authorName(self):
+        authorName = str(self.author).replace("_", " ")
+        return authorName
+
+    def daysAgo(self):
+        today = datetime.datetime.now()
+        if self.date.day == today.day:
+            return str(today.hour - self.date.hour) + " hours ago"
+        else:
+            if self.date.month == today.month:
+                return str(today.day - self.date.day) + " days ago"
+            else:
+                if self.date.year == today.year:
+                    return str(today.month - self.date.month) + " months ago"
+        return "recent"

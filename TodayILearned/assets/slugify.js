@@ -1,4 +1,4 @@
-const titleInput = document.querySelector('input[name=title]');
+const titleInput = document.querySelector('.title-form-area');
 const slugInput = document.querySelector('input[name=slug');
 
 const slugify = (val) => {
